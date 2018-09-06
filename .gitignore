@@ -1,32 +1,37 @@
-# Prerequisites
-*.d
+#include <iostream>
+#include <cstdlib>  //needed to use srand & rand
+#include<iomanip>
+#include<ctime>  //needed to use time
+using namespace std;
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+int main()
+{
+	int i, n, even=0, odd=0, ratio;
+	int seed = time(0); //it will give different seed value based on the time
+	srand(seed);
+	for (i = 1; i <= 10000; i++) //loop for running the code 10000 times
+	{
+		
+		n = rand();
+		{
+			if (n % 2 == 0)
+			{
+				cout << "Even : " << n << "  \n";
+				even++;  //count the total number of even
+			}
+			else
+			{
+				cout << "Odd : " << n << " \n";
+				odd++;  //count the total number of odd
+			}
+		}
+	}
+	cout << "Number of Even : " << even<<endl;
+	cout << "The number of Odd : " << odd << endl;
+	cout << "The ratio of even to odd number = 1 : "<< setprecision(3) << static_cast<double>(even) / static_cast<double>(odd); //convert to double
+	
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+	int a;
+	cin >> a;
+	return 0;
+}
